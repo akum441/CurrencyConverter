@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Currency Converter</title>
+
+</head>
+<body>
+<h1>Currency Converter</h1>
+<form action="#" th:action="@{/convert}" th:object="${currencyRequest}" method="post">
+    <p>
+        <label>From Currency: </label>
+        <select id="fromCurrency" th:field="*{fromCurrency}">
+            <option value="USD">USD</option>
+            <option value="INR">INR</option>
+            <option value="EUR">EUR</option>
+            <option value="JPY">JPY</option>
+        </select>
+    </p>
+    <p>
+        <label>To Currency: </label>
+        <select id="toCurrency" th:field="*{toCurrency}">
+            <option value="INR">INR</option>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="JPY">JPY</option>
+        </select>
+    </p>
+    <p>
+        <label>Amount: </label>
+        <input type="number" th:field="*{amount}" />
+    </p>
+    <p>
+        <button type="submit">Convert</button>
+    </p>
+    <p th:if="${message}" th:text="${message}"></p>
+    <p th:if="${error}" th:text="${error}"></p>
+</form>
+</body>
+</html>
